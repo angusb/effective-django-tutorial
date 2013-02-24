@@ -27,6 +27,7 @@ class CreateContactView(CreateView):
 
     model = Contact
     template_name = 'edit_contact.html'
+    form_class = forms.ContactForm
 
     def get_success_url(self):
         return reverse('contacts-list')
@@ -43,6 +44,7 @@ class UpdateContactView(UpdateView):
 
     model = Contact
     template_name = 'edit_contact.html'
+    form_class = forms.ContactForm
 
     def get_success_url(self):
         return reverse('contacts-list')
