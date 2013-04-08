@@ -19,9 +19,9 @@ class ContactForm(forms.ModelForm):
         model = Contact
 
     def __init__(self, *args, **kwargs):
-
-        email = kwargs['instance'].email
-        kwargs.setdefault('initial', {})['confirm_email'] = email
+        if kwargs['instance']:
+            email = kwargs['instance'].email
+            kwargs.setdefault('initial', {})['confirm_email'] = email
 
         return super(ContactForm, self).__init__(*args, **kwargs)
 
